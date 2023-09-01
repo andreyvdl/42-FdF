@@ -6,7 +6,7 @@ static bool	file_name_is_wrong(char *file)
 
 	dot_pos = ft_strrchr(file, '.');
 	if (dot_pos != NIL)
-		if (ft_strcmp(dot_pos, ".fdf"))
+		if (ft_strcmp(dot_pos, ".fdf") == 0)
 			return (false);
 	return (true);
 }

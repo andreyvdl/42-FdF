@@ -1,5 +1,12 @@
 #include "../include/fdf.h"
 
+// static void	wireframe(char *file)
+// {
+// 	t_fdf	fdf;
+
+
+// }
+
 int	main(int argc, char *argv[])
 {
 	if (argc != 2)
@@ -7,10 +14,11 @@ int	main(int argc, char *argv[])
 		error_argc();
 		exit(EXIT_FAILURE);
 	}
-	else if (file_is_invalid(*(argv + 1)))
+	if (file_is_invalid(*(argv + 1)))
 	{
-		error_file(*(argv + 1));
+		ft_putstr_fd(USAGE_EG, STDERR_FILENO);
 		exit(EXIT_FAILURE);
 	}
+	// wireframe(*(argv + 1));
 	exit(EXIT_SUCCESS);
 }

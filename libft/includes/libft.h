@@ -6,7 +6,7 @@
 /*   By: adantas- <adantas-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/29 15:00:37 by adantas-          #+#    #+#             */
-/*   Updated: 2023/08/21 23:27:06 by adantas-         ###   ########.fr       */
+/*   Updated: 2023/09/01 13:22:46 by adantas-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@
  * @brief GNL buffer size, it reads 4096 bytes (4Kb)
  */
 # define BUFFER_SIZE 4096
+
 /**
  * @brief Redefinition of NULL, 0x0 is compatible with MacOS and Linux as an
  * universal null pointer
@@ -37,30 +38,34 @@
 /* ================================= Types ================================= */
 
 /**
- * @brief Liked list struct
- * 
- * @param content The pointer to the content of the node
- * @param next The pointer to the next node
- */
-typedef struct s_list
-{
-	void			*content;
-	struct s_list	*next;
-}	t_list;
-
-/**
  * @brief Binary tree struct
  * 
  * @param content The pointer to the content of the node
  * @param left The pointer to the left node
  * @param right The pointer to the right node
  */
-typedef struct s_btree
+typedef struct s_btree	t_btree;
+
+/**
+ * @brief Liked list struct
+ * 
+ * @param content The pointer to the content of the node
+ * @param next The pointer to the next node
+ */
+typedef struct s_list	t_list;
+
+struct s_list
 {
-	void			*content;
-	struct s_btree	*left;
-	struct s_btree	*right;
-}	t_btree;
+	void	*content;
+	t_list	*next;
+};
+
+struct	s_btree
+{
+	void	*content;
+	t_btree	*left;
+	t_btree	*right;
+};
 
 /* =============================== Functions =============================== */
 /* ------------------------------ Binary tree ------------------------------ */
@@ -134,6 +139,14 @@ char		*ft_strchr(const char *s, int c);
 char		*ft_strcpy(char *dst, char *src);
 char		**ft_split(char const *s, char c);
 char		*ft_strcat(char *dest, char *src);
+/**
+ * @brief Locates the last occurrence of c in the string s;
+ * 
+ * @param s A pointer to the string to be scanned;
+ * @param c The character to be located;
+ * @return return a pointer to the located character (char *); Or NULL if the
+ * 			character does not appear in the string;
+ */
 char		*ft_strrchr(const char *s, int c);
 char		*ft_strjoin(char const *s1, char const *s2);
 char		*ft_strtrim(char const *s1, char const *set);

@@ -6,7 +6,7 @@
 /*   By: adantas- <adantas-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/19 10:16:08 by adantas-          #+#    #+#             */
-/*   Updated: 2023/06/18 13:34:20 by adantas-         ###   ########.fr       */
+/*   Updated: 2023/09/01 12:54:14 by adantas-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,6 @@ static int	positive_integer(const char *string)
  * @brief Convert a string to an integer; The string is composed of optional
  * 			whitespaces, followed by an optional sign, followed by a sequence of
  * 			digits; Only the first sequence of numbers is converted;
- * 
  * @param nptr A pointer to a string to be converted;
  * @return 0 if the string is NULL or if the numbers don't make part of the
  * 			initial sequence; Otherwise, the converted number (int);
