@@ -6,7 +6,7 @@
 /*   By: adantas- <adantas-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/09 21:19:23 by adantas-          #+#    #+#             */
-/*   Updated: 2024/05/10 17:49:47 by adantas-         ###   ########.fr       */
+/*   Updated: 2024/05/10 18:02:41 by adantas-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,5 +28,7 @@ typedef struct s_fdf
 
 t_fdf	fdf_build(t_fdf *fdf);
 void	fdf_unbuild(t_fdf *fdf);
+
+bool	invalid_file(t_fdf *fdf, char *filename);
 
 #endif
