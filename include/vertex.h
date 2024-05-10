@@ -6,7 +6,7 @@
 /*   By: adantas- <adantas-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/09 21:18:44 by adantas-          #+#    #+#             */
-/*   Updated: 2024/05/09 21:36:49 by adantas-         ###   ########.fr       */
+/*   Updated: 2024/05/10 17:01:17 by adantas-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ struct s_vertex
 	t_vertex	*right;
 };
 
-t_vertex	*build_vertex(int x, int y, int z, uint32_t color);
-void		destroy_vertex(t_vertex *vertex);
+t_vertex	*vertex_build(int x, int y, int z, uint32_t color);
+void		vertex_unbuild(t_vertex *vertex);
 
 #endif

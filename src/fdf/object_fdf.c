@@ -1,38 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   object_fdf.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: adantas- <adantas-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/26 22:06:16 by adantas-          #+#    #+#             */
-/*   Updated: 2024/05/10 18:00:29 by adantas-         ###   ########.fr       */
+/*   Created: 2024/05/10 12:56:41 by adantas-          #+#    #+#             */
+/*   Updated: 2024/05/10 17:18:04 by adantas-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/fdf.h"
+#include "../../include/fdf.h"
 
-int	main(int argc, char	*argv[])
+t_fdf	fdf_build(t_fdf *fdf)
 {
-	t_fdf	fdf;
+	t_fdf	tmp;
 
-	fdf = fdf_build(NULL);
-	if (argc != 2)
-	{
-		fdf.printf.print(&fdf.printf, "[argument] error\n");
-		fdf_unbuild(&fdf);
-		return (1);
-	}
-	if (invalid_file(&fdf, argv[1]))
-	{
-		fdf_unbuild(&fdf);
-		return (1);
-	}
-	if (render_fdf(&fdf))
-	{
-		fdf_unbuild(&fdf);
-		return (1);
-	}
-	fdf_unbuild(&fdf);
-	return (0);
+	ft_bzero(&tmp.obj_mlx, sizeof(t_mlx));
+	tmp.vertex = NULL;
+	printf_build(&tmp.printf, STDERR_FILENO);
+	gnl_build(&tmp.gnl, STDIN_FILENO);
+	if (fdf)
+		*fdf = tmp;
+	return (tmp);
+}
+
+void	fdf_unbuild(t_fdf *fdf)
+{
+	if (fdf->vertex)
+		vertex_unbuild(fdf->vertex);
+	gnl_unbuild(&fdf->gnl);
 }

@@ -46,6 +46,8 @@ clean:
 re: fclean all
 .PHONY: re
 
-# test:
-# 	cmake -S ./MLX42 -B ./MLX42/build
-# 	cmake --build ./MLX42/build -j4
+test:
+	@make -C CTEST
+	@cc ./CTEST/testing.c -L./CTEST -lcassert -o ./CTEST/test
+	@./CTEST/test
+.PHONY: test

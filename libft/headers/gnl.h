@@ -6,7 +6,7 @@
 /*   By: adantas- <adantas-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/03 21:30:21 by adantas-          #+#    #+#             */
-/*   Updated: 2024/05/04 09:55:29 by adantas-         ###   ########.fr       */
+/*   Updated: 2024/05/10 12:59:55 by adantas-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,8 @@ typedef void			(*t_gnl_clear)(t_gnl *);
 
 struct s_gnl
 {
-	int		_fd;
-	char	*_buffer;
+	int				_fd;
+	char			*_buffer;
 
 	t_gnl_get_line	get_line;
 	t_gnl_set_fd	set_fd;
