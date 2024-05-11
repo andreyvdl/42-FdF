@@ -7,7 +7,7 @@ SRCS=$(addprefix src/, main.c invalid_file.c\
 OBJS=$(addprefix objects/, $(notdir $(SRCS:.c=.o)))
 MLX=MLX42/build/libmlx42.a
 LIBFT=libft/libft.a
-LIBFT_FLAGS=-Llibft -lft
+LIBFT_FLAGS=-L./libft -lft
 MLX_FLAGS=-LMLX42/build -lmlx42 -lm -ldl -lglfw -pthread
 
 VPATH=src:src/fdf:src/vertex
@@ -37,12 +37,14 @@ dir:
 fclean: clean
 	@rm -fr $(NAME)
 	@make -C libft fclean
+	@make -C CTEST fclean
 	@make -C MLX42/build clean
 .PHONY: fclean
 
 clean:
 	@rm -fr objects
 	@make -C libft clean
+	@make -C CTEST clean
 	@make -C MLX42/build clean
 .PHONY: clean
 
@@ -52,5 +54,5 @@ re: fclean all
 test: $(LIBFT)
 	@make -C CTEST 
 	@cc $(CFLAGS) ./CTEST/testing.c -L./CTEST -lcassert $(LIBFT_FLAGS) -o ./CTEST/test
-	@./CTEST/test > .log
+	@./CTEST/test
 .PHONY: test
