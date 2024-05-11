@@ -6,13 +6,14 @@
 /*   By: adantas- <adantas-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/10 17:44:15 by adantas-          #+#    #+#             */
-/*   Updated: 2024/05/10 18:00:04 by adantas-         ###   ########.fr       */
+/*   Updated: 2024/05/11 03:00:07 by adantas-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/fdf.h"
 
 static bool	filename_errors(char *filename);
+static bool	file_misconfiguration(t_fdf *fdf);
 
 bool	invalid_file(t_fdf *fdf, char *filename)
 {
@@ -27,6 +28,11 @@ bool	invalid_file(t_fdf *fdf, char *filename)
 		fdf->printf.print(&fdf->printf, "[open] error\n");
 		return (true);
 	}
+	if (file_misconfiguration(fdf))
+	{
+		fdf->printf.print(&fdf->printf, "[file] error\n");
+		return (true);
+	}
 	return (false);
 }
 
@@ -38,5 +44,28 @@ static bool	filename_errors(char *filename)
 		return (true);
 	else if (ft_strncmp(ft_strrchr(filename, '.'), ".fdf", sizeof(".fdf")))
 		return (true);
+	return (false);
+}
+
+static bool	file_misconfiguration(t_fdf *fdf)
+{
+	char	*line[2];
+	char	**splited;
+
+	line[0] = fdf->gnl.get_line(&fdf->gnl);
+	while (line[0])
+	{
+		line[1] = ft_strtrim(line[0], " \t\n");
+		free(line[0]);
+		if (!line[1])
+			return (true);
+		splited = ft_split(line[1], ' ');
+		free(line[1]);
+		if (!splited)
+			return (true);
+		if (try_create_vertexes(fdf, splited))
+			return (true);
+		line[0] = fdf->gnl.get_line(&fdf->gnl);
+	}
 	return (false);
 }
