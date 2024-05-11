@@ -11,11 +11,12 @@ jobs:
         uses: actions/setup-python@v2
         with:
           python-version: '3.x'
-
-      - name: Run norminette
         run: |
           python -m pip install --upgrade pip
           python -m pip install norminette
+
+      - name: Run norminette
+        run: |
           norminette include/ src/
 
       - name: Run tests
