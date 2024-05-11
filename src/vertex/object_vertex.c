@@ -6,7 +6,7 @@
 /*   By: adantas- <adantas-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/10 12:47:12 by adantas-          #+#    #+#             */
-/*   Updated: 2024/05/10 17:00:16 by adantas-         ###   ########.fr       */
+/*   Updated: 2024/05/11 13:19:45 by adantas-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,11 +28,12 @@ t_vertex	*vertex_build(int x, int y, int z, uint32_t color)
 	return (vertex);
 }
 
-void	vertex_unbuild(t_vertex *vertex)
+void	vertex_unbuild(void *content)
 {
-	if (vertex->down)
-		vertex_unbuild(vertex->down);
-	if (vertex->right)
-		vertex_unbuild(vertex->right);
+	t_vertex	*vertex;
+
+	vertex = (t_vertex *)content;
+	if (vertex->next)
+		vertex_unbuild(vertex->next);
 	free(vertex);
 }

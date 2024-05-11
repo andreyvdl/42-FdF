@@ -6,7 +6,7 @@
 /*   By: adantas- <adantas-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/09 21:19:23 by adantas-          #+#    #+#             */
-/*   Updated: 2024/05/11 02:59:25 by adantas-         ###   ########.fr       */
+/*   Updated: 2024/05/11 14:28:19 by adantas-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@
 
 typedef struct s_fdf
 {
-	t_vertex	*vertex;
+	t_flist		vertex;
 	t_mlx		obj_mlx;
 	t_printf	printf;
 	t_gnl		gnl;
