@@ -49,8 +49,8 @@ clean:
 re: fclean all
 .PHONY: re
 
-test: all
-	@make -C CTEST
+test: $(LIBFT)
+	@make -C CTEST 
 	@cc $(CFLAGS) -g3 ./CTEST/testing.c -L./CTEST -lcassert $(LIBFT_FLAGS) -o ./CTEST/test
 	@./CTEST/test > .log
 .PHONY: test
