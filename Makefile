@@ -1,13 +1,16 @@
 CFLAGS=-Wall -Wextra -Werror -std=c99
 NAME=fdf
-SRCS=$(addprefix src/, main.c)
+SRCS=$(addprefix src/, main.c invalid_file.c\
+	$(addprefix fdf/, object_fdf.c)\
+	$(addprefix vertex/, object_vertex.c)\
+)
 OBJS=$(addprefix objects/, $(notdir $(SRCS:.c=.o)))
 MLX=MLX42/build/libmlx42.a
 LIBFT=libft/libft.a
 LIBFT_FLAGS=-Llibft -lft
 MLX_FLAGS=-LMLX42/build -lmlx42 -lm -ldl -lglfw -pthread
 
-VPATH=src
+VPATH=src:src/fdf:src/vertex
 
 all: $(NAME)
 .PHONY: all
@@ -46,8 +49,8 @@ clean:
 re: fclean all
 .PHONY: re
 
-test:
+test: all
 	@make -C CTEST
-	@cc ./CTEST/testing.c -L./CTEST -lcassert -o ./CTEST/test
-	@./CTEST/test
+	@cc $(CFLAGS) -g3 ./CTEST/testing.c -L./CTEST -lcassert $(LIBFT_FLAGS) -o ./CTEST/test
+	@./CTEST/test > .log
 .PHONY: test

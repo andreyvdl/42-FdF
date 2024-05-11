@@ -6,11 +6,17 @@
 /*   By: adantas- <adantas-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/26 22:06:16 by adantas-          #+#    #+#             */
-/*   Updated: 2024/05/10 18:00:29 by adantas-         ###   ########.fr       */
+/*   Updated: 2024/05/10 21:47:45 by adantas-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/fdf.h"
+
+static bool render_fdf(t_fdf *fdf)
+{
+	(void)fdf;
+	return (false);
+}
 
 int	main(int argc, char	*argv[])
 {

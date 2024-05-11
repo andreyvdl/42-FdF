@@ -6,7 +6,7 @@
 /*   By: adantas- <adantas-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/28 15:53:38 by adantas-          #+#    #+#             */
-/*   Updated: 2024/04/28 19:52:48 by adantas-         ###   ########.fr       */
+/*   Updated: 2024/05/10 23:57:45 by adantas-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,5 +26,5 @@ int	ft_strncmp(const char *s1, const char *s2, size_t n)
 		++lhs;
 		++rhs;
 	}
-	return (lhs - rhs);
+	return (*lhs - *rhs);
 }
