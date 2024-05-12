@@ -6,7 +6,7 @@
 /*   By: adantas- <adantas-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/10 17:44:15 by adantas-          #+#    #+#             */
-/*   Updated: 2024/05/11 12:13:36 by adantas-         ###   ########.fr       */
+/*   Updated: 2024/05/12 15:47:11 by adantas-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,7 @@ static bool	file_misconfiguration(t_fdf *fdf)
 		free(line[1]);
 		if (!splited)
 			return (true);
-		if (try_create_vertexes(fdf, splited))
+		else if (try_create_vertexes(fdf, splited))
 		{
 			free_matrix(splited);
 			return (true);

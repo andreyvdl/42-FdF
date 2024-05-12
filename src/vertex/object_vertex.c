@@ -6,7 +6,7 @@
 /*   By: adantas- <adantas-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/10 12:47:12 by adantas-          #+#    #+#             */
-/*   Updated: 2024/05/11 13:19:45 by adantas-         ###   ########.fr       */
+/*   Updated: 2024/05/12 11:40:20 by adantas-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,8 @@ t_vertex	*vertex_build(int x, int y, int z, uint32_t color)
 	vertex->y = y;
 	vertex->z = z;
 	vertex->color = color;
+	vertex->next = NULL;
 	vertex->down = NULL;
-	vertex->right = NULL;
 	return (vertex);
 }
 
